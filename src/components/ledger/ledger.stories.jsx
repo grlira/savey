@@ -1,37 +1,17 @@
 // @flow
+import _ from 'lodash';
 import React from 'react';
 import { storiesOf } from '@storybook/react';
+import exampleData from '../../../mockData/records_slice.json';
 import Ledger from './ledger';
 
 storiesOf('Ledger', module).add('default', () => (
   <div style={{ padding: '1rem' }}>
     <Ledger
-      records={[
-        {
-          date: new Date(),
-          description: 'Foetex food supermarket consumption long string',
-          category: 'Food products',
-          ammount: 250.3,
-        },
-        {
-          date: new Date(),
-          description: 'Bla bla',
-          category: 'Food products',
-          ammount: 250.3,
-        },
-        {
-          date: new Date(),
-          description: 'Foetex food supermarket consumption long string',
-          category: 'Food products',
-          ammount: 250.3,
-        },
-        {
-          date: new Date(),
-          description: 'Foetex food supermarket consumption long string',
-          category: 'Food products',
-          ammount: -1000.3,
-        },
-      ]}
+      records={_.map(exampleData, datum => ({
+        ...datum,
+        date: new Date(datum.date),
+      }))}
     />
   </div>
 ));

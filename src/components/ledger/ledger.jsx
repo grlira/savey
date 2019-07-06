@@ -3,7 +3,7 @@ import _ from 'lodash';
 import React from 'react';
 import styled from 'styled-components';
 import Record from '../record';
-import recordsTypes from '../../models/records/types';
+import * as recordsTypes from '../../models/records/types';
 
 type Props = {|
   records: $ReadOnlyArray<recordsTypes.Record>,

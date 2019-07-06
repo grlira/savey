@@ -2,7 +2,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import NumberFormat from 'react-number-format';
-import recordsTypes from '../../models/records/types';
+import * as recordsTypes from '../../models/records/types';
 
 type Props = {|
   record: recordsTypes.Record,
@@ -66,6 +66,8 @@ export default ({ record: { date, description, category, ammount } }: Props) => 
     <NumberFormat
       value={ammount}
       displayType="text"
+      decimalScale={2}
+      fixedDecimalScale
       thousandSeparator
       renderText={value => (
         <Ammount ammount={ammount}>
