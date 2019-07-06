@@ -6,4 +6,5 @@ export default {
   paperAccent: '#dedede',
   positive: '#A0E516',
   negative: '#E51616',
+  text: '#333333',
 };

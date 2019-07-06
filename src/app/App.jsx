@@ -17,8 +17,8 @@ const AppContainer = styled.div`
 function App() {
   return (
     <>
-      <GlobalStyle />
       <ThemeProvider theme={theme}>
+        <GlobalStyle />
         <AppContainer>
           <Paper>
             <Ledger />
