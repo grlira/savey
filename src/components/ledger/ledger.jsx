@@ -12,6 +12,10 @@ type Props = {|
 const Ledger = styled.div`
   display: grid;
   grid-gap: 1rem;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  width: fit-content;
+  padding: 0.5rem;
 `;
 
 export default ({ records }: Props) => (

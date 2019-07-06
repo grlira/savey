@@ -7,12 +7,8 @@ import theme from './theme';
 import store from './store';
 
 const AppContainer = styled.div`
-  max-width: 1000px;
-  margin: auto;
-
-  @media (max-width: 1200px) {
-    max-width: 500px;
-  }
+  max-height: 100vh;
+  display: flex;
 `;
 
 function App() {

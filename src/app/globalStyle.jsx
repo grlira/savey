@@ -23,6 +23,7 @@ const GlobalStyle = createGlobalStyle`
     line-height: 1.43;
     letter-spacing: 0.01071em;
     background-color: #fafafa;
+    overflow: hidden;
   }
   @media print {
     body {
