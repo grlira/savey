@@ -1,3 +1,3 @@
-import Ledger from './ledger';
+import Ledger from './container';
 
 export default Ledger;

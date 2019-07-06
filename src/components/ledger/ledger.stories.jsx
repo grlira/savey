@@ -2,7 +2,7 @@
 import _ from 'lodash';
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import exampleData from '../../../mockData/records_slice.json';
+import exampleData from '../../mockData/records_slice.json';
 import Ledger from './ledger';
 
 storiesOf('Ledger', module).add('default', () => (

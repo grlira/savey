@@ -1,9 +1,10 @@
 import React from 'react';
-import Paper from '@material-ui/core/Paper';
 import styled, { ThemeProvider } from 'styled-components';
+import { Provider } from 'react-redux';
 import Ledger from '../modules/ledger';
 import GlobalStyle from './globalStyle';
 import theme from './theme';
+import store from './store';
 
 const AppContainer = styled.div`
   max-width: 1000px;
@@ -16,16 +17,16 @@ const AppContainer = styled.div`
 
 function App() {
   return (
-    <>
+    <Provider store={store}>
       <ThemeProvider theme={theme}>
-        <GlobalStyle />
-        <AppContainer>
-          <Paper>
+        <>
+          <GlobalStyle />
+          <AppContainer>
             <Ledger />
-          </Paper>
-        </AppContainer>
+          </AppContainer>
+        </>
       </ThemeProvider>
-    </>
+    </Provider>
   );
 }
 
