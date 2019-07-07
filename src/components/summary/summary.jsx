@@ -1,8 +1,8 @@
 // @flow
 import React, { useContext } from 'react';
 import styled, { ThemeContext } from 'styled-components';
-import NumberFormat from 'react-number-format';
 import { Sparklines, SparklinesCurve } from 'react-sparklines';
+import Ammount from '../ammount';
 
 type Props = {|
   total: number,
@@ -57,14 +57,7 @@ export default ({ total, label, dataPoints }: Props) => {
 
   return (
     <Summary>
-      <NumberFormat
-        value={total}
-        displayType="text"
-        decimalScale={total > 999999 ? 0 : 2} // don't show decimals above 1M
-        fixedDecimalScale
-        thousandSeparator
-        renderText={value => <Total value={total}>{value}</Total>}
-      />
+      <Ammount value={total} RenderText={Total} />
       <Label>{label}</Label>
       <Sparkline>
         <Sparklines data={dataPoints}>
