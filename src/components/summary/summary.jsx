@@ -17,6 +17,7 @@ const Summary = styled.div`
   grid-template-columns: 5fr 3fr;
 
   width: 25rem;
+  height: 9.5rem;
   padding: 0.5rem;
 
   background-color: ${props => props.theme.paperBackground};

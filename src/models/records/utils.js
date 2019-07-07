@@ -5,14 +5,16 @@ import * as types from './types';
 export const getTotal = (records: $ReadOnlyArray<types.Record>) =>
   _.reduce(records, (total, record) => total + record.ammount, 0);
 
-export const getRunningTotals = (records: $ReadOnlyArray<types.Record>) => {
-  let runningTotal = 0;
-  return _.reduce(
+export const getRunningTotals = (records: $ReadOnlyArray<types.Record>) =>
+  _.reduce(
     records,
     (totals, record) => {
-      runningTotal += record.ammount;
-      return [...totals, runningTotal];
+      return [...totals, totals[totals.length - 1] + record.ammount];
     },
-    []
+    [0]
   );
-};
+
+export const getBetween = (records: $ReadOnlyArray<types.Record>, minDate: ?Date, maxDate: ?Date) =>
+  _.filter(records, record => {
+    return (!minDate || record.date >= minDate) && (!maxDate || record.date <= maxDate);
+  });

@@ -1,7 +1,7 @@
 import React from 'react';
 import styled, { ThemeProvider } from 'styled-components';
 import { Provider } from 'react-redux';
-import Ledger from '../modules/ledger';
+import Dashboard from '../modules/dashboard';
 import GlobalStyle from './globalStyle';
 import theme from './theme';
 import store from './store';
@@ -18,7 +18,7 @@ function App() {
         <>
           <GlobalStyle />
           <AppContainer>
-            <Ledger />
+            <Dashboard />
           </AppContainer>
         </>
       </ThemeProvider>

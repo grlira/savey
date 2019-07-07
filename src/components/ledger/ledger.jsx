@@ -7,7 +7,7 @@ import * as recordsTypes from '../../models/records/types';
 
 type Props = {|
   records: $ReadOnlyArray<recordsTypes.Record>,
-  isSmallRecords: boolean,
+  isThinRecords: boolean,
 |};
 
 const Ledger = styled.div`
@@ -16,13 +16,14 @@ const Ledger = styled.div`
   overflow-y: scroll;
   overflow-x: hidden;
   width: fit-content;
+  height: 100%;
   padding: 0.5rem;
 `;
 
-export default ({ records, isSmallRecords }: Props) => (
+export default ({ records, isThinRecords }: Props) => (
   <Ledger>
-    {_.map(records, record => (
-      <Record record={record} isSmall={isSmallRecords} />
+    {_.map(records, (record, index) => (
+      <Record key={index} record={record} isThin={isThinRecords} />
     ))}
   </Ledger>
 );

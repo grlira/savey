@@ -1,18 +1,18 @@
 // @flow
 import React from 'react';
-import LargeRecord from './largeRecord';
-import SmallRecord from './smallRecord';
+import ThickRecord from './thickRecord';
+import ThinRecord from './thinRecord';
 
 type Props = {|
-  isSmall?: boolean,
+  isThin?: boolean,
   record: recordsTypes.Record,
 |};
 
-const Record = ({ isSmall, ...restProps }: Props) =>
-  isSmall ? <SmallRecord {...restProps} /> : <LargeRecord {...restProps} />;
+const Record = ({ isThin, ...restProps }: Props) =>
+  isThin ? <ThinRecord {...restProps} /> : <ThickRecord {...restProps} />;
 
 Record.defaultProps = {
-  isSmall: false,
+  isThin: false,
 };
 
 export default Record;

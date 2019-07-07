@@ -7,7 +7,7 @@ import Record from './record';
 storiesOf('Record', module).add('default', () => (
   <div style={{ padding: '1rem' }}>
     <Record
-      isSmall={boolean('isSmall', true)}
+      isThin={boolean('isThin', true)}
       record={{
         date: new Date(),
         description: text('description', 'Foetex food supermarket consumption long string'),

@@ -15,6 +15,7 @@ const Record = styled.div`
   grid-template-columns: auto auto;
 
   width: 15rem;
+  height: 7rem;
 
   background-color: ${props => props.theme.paperBackground};
   box-shadow: 0px 0px 5px 0px ${props => props.theme.paperAccent};
