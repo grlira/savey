@@ -1,13 +1,9 @@
-import _ from 'lodash';
 import { connect } from 'react-redux';
-import mockRecords from '../../mockData/records_slice.json';
+import mockRecords from '../../models/records/mock';
 import Ledger from './ledger';
 
 const mapStateToProps = () => ({
-  records: _.map(mockRecords, datum => ({
-    ...datum,
-    date: new Date(datum.date),
-  })),
+  records: mockRecords,
 });
 
 export default connect(mapStateToProps)(Ledger);
