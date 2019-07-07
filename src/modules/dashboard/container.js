@@ -1,9 +1,17 @@
 import { connect } from 'react-redux';
-import mockRecords from '../../models/records/mock';
+import * as recordsSelectors from '../../models/records/selectors';
+import * as recordsActions from '../../models/records/actions';
 import Dashboard from './dashboard';
 
-const mapStateToProps = () => ({
-  records: mockRecords,
+const mapStateToProps = state => ({
+  records: recordsSelectors.getAll(state),
 });
 
-export default connect(mapStateToProps)(Dashboard);
+const mapDispatchToProps = {
+  onAddRecord: recordsActions.add,
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Dashboard);

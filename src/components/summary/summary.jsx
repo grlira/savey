@@ -2,7 +2,7 @@
 import React, { useContext } from 'react';
 import styled, { ThemeContext } from 'styled-components';
 import { Sparklines, SparklinesCurve } from 'react-sparklines';
-import Ammount from '../ammount';
+import Amount from '../amount';
 
 type Props = {|
   total: number,
@@ -58,7 +58,7 @@ export default ({ total, label, dataPoints }: Props) => {
 
   return (
     <Summary>
-      <Ammount value={total} RenderText={Total} />
+      <Amount value={total} RenderText={Total} />
       <Label>{label}</Label>
       <Sparkline>
         <Sparklines data={dataPoints}>

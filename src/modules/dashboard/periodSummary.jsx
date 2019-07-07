@@ -4,7 +4,7 @@ import Summary from '../../components/summary';
 import * as recordsUtils from '../../models/records/utils';
 
 type Props = {
-  records: $ReadOnlyArray<reacordsTypes.Records>,
+  records: $ReadOnlyArray<recordsTypes.Records>,
   label: string,
   minDate: ?Date,
   maxDate: ?Date,

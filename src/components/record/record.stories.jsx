@@ -12,7 +12,7 @@ storiesOf('Record', module).add('default', () => (
         date: new Date(),
         description: text('description', 'Foetex food supermarket consumption long string'),
         category: text('category', 'Food'),
-        ammount: number('ammount', 250.3),
+        amount: number('amount', 250.3),
       }}
     />
   </div>

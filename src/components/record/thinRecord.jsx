@@ -2,7 +2,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import * as recordsTypes from '../../models/records/types';
-import Ammount from '../ammount';
+import Amount from '../amount';
 
 type Props = {|
   record: recordsTypes.Record,
@@ -24,7 +24,7 @@ const Record = styled.div`
   font-size: 1rem;
 `;
 
-const AmmountFormatter = styled.div`
+const AmountFormatter = styled.div`
   font-size: 1.5rem;
   line-height: 2rem;
   grid-column: 1;
@@ -64,9 +64,9 @@ const Category = styled.div`
   text-align: left;
 `;
 
-export default ({ record: { date, description, category, ammount } }: Props) => (
+export default ({ record: { date, description, category, amount } }: Props) => (
   <Record>
-    <Ammount value={ammount} RenderText={AmmountFormatter} />
+    <Amount value={amount} RenderText={AmountFormatter} />
     <Description>{description}</Description>
     <Category>{category}</Category>
     <DateContainer>{date.toLocaleDateString()}</DateContainer>

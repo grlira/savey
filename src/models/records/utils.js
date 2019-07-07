@@ -3,13 +3,13 @@ import _ from 'lodash';
 import * as types from './types';
 
 export const getTotal = (records: $ReadOnlyArray<types.Record>) =>
-  _.reduce(records, (total, record) => total + record.ammount, 0);
+  _.reduce(records, (total, record) => total + record.amount, 0);
 
 export const getRunningTotals = (records: $ReadOnlyArray<types.Record>) =>
   _.reduce(
     records,
     (totals, record) => {
-      return [...totals, totals[totals.length - 1] + record.ammount];
+      return [...totals, totals[totals.length - 1] + record.amount];
     },
     [0]
   );

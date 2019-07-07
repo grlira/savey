@@ -1,11 +1,13 @@
 // @flow
+import _ from 'lodash';
 import React from 'react';
 import styled from 'styled-components';
 import Ledger from '../../components/ledger';
 import PeriodSummary from './periodSummary';
 
 type Props = {
-  records: $ReadOnlyArray<reacordsTypes.Records>,
+  records: $ReadOnlyArray<recordsTypes.Records>,
+  onAddRecord: (record: recordsTypes.Record) => void,
 };
 
 const Dashboard = styled.div`
@@ -46,7 +48,7 @@ const AllTimeBox = styled.div`
   }
 `;
 
-export default ({ records }: Props) => {
+export default ({ records, onAddRecord }: Props) => {
   const today = new Date();
   return (
     <Dashboard>
@@ -72,6 +74,15 @@ export default ({ records }: Props) => {
       <AllTimeBox>
         <PeriodSummary records={records} label="All time" />
       </AllTimeBox>
+      <button
+        type="button"
+        onClick={_.partial(onAddRecord, {
+          date: new Date(),
+          description: 'New stuff',
+          category: 'Food',
+          amount: 500,
+        })}
+      />
     </Dashboard>
   );
 };
