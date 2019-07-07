@@ -18,7 +18,7 @@ const GlobalStyle = createGlobalStyle`
     color: ${props => props.theme.text};
     margin: 0;
     font-size: 0.875rem;
-    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    font-family: "Oxygen", "Helvetica", "Arial", sans-serif;
     font-weight: 400;
     line-height: 1.43;
     letter-spacing: 0.01071em;

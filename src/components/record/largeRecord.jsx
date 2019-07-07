@@ -29,7 +29,7 @@ const Description = styled.div`
   text-overflow: ellipsis;
   grid-column: 1 / span 2;
   grid-row: 1;
-  line-height: 1rem;
+  line-height: 0.75rem;
 `;
 
 const AmmountFormatter = styled.div`
@@ -47,7 +47,7 @@ const DateContainer = styled.div`
   text-overflow: ellipsis;
   grid-column: 1;
   grid-row: 3;
-  line-height: 1rem;
+  line-height: 0.75rem;
 `;
 
 const Category = styled.div`
@@ -57,7 +57,7 @@ const Category = styled.div`
   text-align: right;
   grid-column: 2;
   grid-row: 3;
-  line-height: 1rem;
+  line-height: 0.75rem;
 `;
 
 export default ({ record: { date, description, category, ammount } }: Props) => (
