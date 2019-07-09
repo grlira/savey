@@ -5,6 +5,6 @@ import RecordInput from './recordInput';
 
 storiesOf('RecordInput', module).add('default', () => (
   <div style={{ padding: '1rem' }}>
-    <RecordInput />
+    <RecordInput onAddRecord={() => undefined} />
   </div>
 ));

@@ -4,6 +4,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Ledger from '../../components/ledger';
 import RecordInput from '../../components/recordInput';
+import * as recordsTypes from '../../models/records/types';
 import PeriodSummary from './periodSummary';
 
 type Props = {
@@ -66,7 +67,7 @@ export default ({ records, onAddRecord }: Props) => {
     <Dashboard>
       <LedgerBox>
         <InputBox>
-          <RecordInput a={onAddRecord} />
+          <RecordInput onAddRecord={onAddRecord} />
         </InputBox>
         <Ledger records={_.orderBy(records, 'date', 'desc')} />
       </LedgerBox>

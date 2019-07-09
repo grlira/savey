@@ -1,8 +1,14 @@
 // @flow
 import React, { useState } from 'react';
 import TextField from '@material-ui/core/TextField';
+import Input from '@material-ui/core/Input';
 import NumberFormat from 'react-number-format';
+import * as recordsTypes from '../../models/records/types';
 import RecordBox from '../recordBox';
+
+type Props = {|
+  onAddRecord: (record: recordsTypes.Record) => void,
+|};
 
 function NumberFormatCustom(props: { inputRef: () => void, onChange: () => void }) {
   const { inputRef, onChange, ...other } = props;
@@ -25,11 +31,11 @@ function NumberFormatCustom(props: { inputRef: () => void, onChange: () => void 
   );
 }
 
-export default () => {
+export default ({ onAddRecord }: Props) => {
   const [amount, setAmount] = useState(0);
   const [description, setDescription] = useState('');
   const [category, setCategory] = useState('');
-  const [date, setDate] = useState(new Date());
+  const [date, setDate] = useState(new Date().toISOString());
 
   return (
     <form
@@ -37,9 +43,14 @@ export default () => {
       method="POST"
       onSubmit={e => {
         e.preventDefault();
-        console.log(e);
+        onAddRecord({ amount: Number(amount), description, category, date });
+        setAmount(0);
+        setDescription('');
+        setCategory('');
+        setDate(new Date().toISOString());
       }}
     >
+      <Input type="submit" style={{ display: 'none' }} /> {/* hack to enable submiting the form with enter */}
       <RecordBox>
         <TextField
           id="amount"
@@ -68,8 +79,8 @@ export default () => {
         />
         <TextField
           id="date"
-          value={date.toISOString().substr(0, 10)}
-          onChange={event => setDate(new Date(event.target.value || new Date().toISOString()))}
+          value={date.substr(0, 10)} // date input demands yyyy-MM-DD
+          onChange={event => setDate(event.target.value || new Date().toISOString())}
           type="date"
           margin="none"
         />
