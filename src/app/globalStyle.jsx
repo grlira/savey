@@ -25,6 +25,12 @@ const GlobalStyle = createGlobalStyle`
     background-color: #fafafa;
     overflow: hidden;
   }
+
+  /* Override Material UI defaults */
+  [class*="Mui"] {
+    font-family: "Oxygen", "Helvetica", "Arial", sans-serif;
+  }
+
   @media print {
     body {
       background-color: #fff;
