@@ -8,6 +8,6 @@ import Ledger from './ledger';
 
 storiesOf('Ledger', module).add('default', () => (
   <div style={{ padding: '1rem', position: 'relative', height: '30.5rem', display: 'flex' }}>
-    <Ledger records={mockRecords} isThinRecords={boolean('isThinRecords', false)} />
+    <Ledger records={mockRecords} isThinRecords={boolean('isThinRecords', true)} />
   </div>
 ));

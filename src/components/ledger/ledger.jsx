@@ -12,12 +12,12 @@ type Props = {|
 
 const Ledger = styled.div`
   display: grid;
-  grid-gap: 1rem;
+  grid-gap: 0.5rem;
   overflow-y: scroll;
   overflow-x: hidden;
   width: fit-content;
   height: 100%;
-  padding: 0.5rem;
+  padding: 0rem 0.5rem;
 `;
 
 export default ({ records, isThinRecords }: Props) => (

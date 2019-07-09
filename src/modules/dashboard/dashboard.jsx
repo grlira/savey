@@ -3,6 +3,7 @@ import _ from 'lodash';
 import React from 'react';
 import styled from 'styled-components';
 import Ledger from '../../components/ledger';
+import RecordInput from '../../components/recordInput';
 import PeriodSummary from './periodSummary';
 
 type Props = {
@@ -19,6 +20,7 @@ const Dashboard = styled.div`
 
 const LedgerBox = styled.div`
   display: flex;
+  flex-direction: column;
   height: 30.5rem;
   max-height: 100vh;
   grid-row: 1 / span 4;
@@ -48,16 +50,26 @@ const AllTimeBox = styled.div`
   }
 `;
 
+const InputBox = styled.div`
+  padding-bottom: 0.5rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+`;
+
 export default ({ records, onAddRecord }: Props) => {
   const today = new Date();
+  const pastToFuture = _.orderBy(records, 'date', 'asc');
   return (
     <Dashboard>
       <LedgerBox>
-        <Ledger records={records} isThinRecords />
+        <InputBox>
+          <RecordInput a={onAddRecord} isThin />
+        </InputBox>
+        <Ledger records={_.orderBy(records, 'date', 'desc')} isThinRecords />
       </LedgerBox>
       <MonthBox>
         <PeriodSummary
-          records={records}
+          records={pastToFuture}
           label="This month"
           minDate={new Date(today.getFullYear(), today.getMonth(), 1)}
           maxDate={new Date(today.getFullYear(), today.getMonth() + 1, 0)}
@@ -65,24 +77,15 @@ export default ({ records, onAddRecord }: Props) => {
       </MonthBox>
       <YearBox>
         <PeriodSummary
-          records={records}
+          records={pastToFuture}
           label="This year"
           minDate={new Date(today.getFullYear(), 0, 1)}
           maxDate={new Date(today.getFullYear() + 1, 0, 0)}
         />
       </YearBox>
       <AllTimeBox>
-        <PeriodSummary records={records} label="All time" />
+        <PeriodSummary records={pastToFuture} label="All time" />
       </AllTimeBox>
-      <button
-        type="button"
-        onClick={_.partial(onAddRecord, {
-          date: new Date(),
-          description: 'New stuff',
-          category: 'Food',
-          amount: 500,
-        })}
-      />
     </Dashboard>
   );
 };
