@@ -28,25 +28,28 @@ const LedgerBox = styled.div`
 
 const MonthBox = styled.div`
   grid-column: 2;
+  margin: auto;
 
   @media screen and (max-width: 1024px) {
-    display: none;
+    grid-column: 1;
   }
 `;
 
 const YearBox = styled.div`
   grid-column: 2;
+  margin: auto;
 
   @media screen and (max-width: 1024px) {
-    display: none;
+    grid-column: 1;
   }
 `;
 
 const AllTimeBox = styled.div`
   grid-column: 2;
+  margin: auto;
 
   @media screen and (max-width: 1024px) {
-    display: none;
+    grid-column: 1;
   }
 `;
 

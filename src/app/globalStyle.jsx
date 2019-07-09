@@ -7,6 +7,10 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+
+    @media screen and (max-width: 550px) {
+      font-size: 11px;
+    }
   }
   *, *::before, *::after {
     box-sizing: inherit;
