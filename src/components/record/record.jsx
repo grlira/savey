@@ -1,18 +1,42 @@
 // @flow
 import React from 'react';
-import ThickRecord from './thickRecord';
-import ThinRecord from './thinRecord';
+import styled from 'styled-components';
+import * as recordsTypes from '../../models/records/types';
+import RecordBox from '../recordBox';
+import Amount from '../amount';
 
 type Props = {|
-  isThin?: boolean,
   record: recordsTypes.Record,
 |};
 
-const Record = ({ isThin, ...restProps }: Props) =>
-  isThin ? <ThinRecord {...restProps} /> : <ThickRecord {...restProps} />;
+const AmountFormatter = styled.div`
+  font-size: 1.5rem;
+  line-height: 2rem;
+  color: ${props => (props.value > 0 ? props.theme.positive : props.theme.negative)};
+`;
 
-Record.defaultProps = {
-  isThin: false,
-};
+const Ellipsis = styled.div`
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: 0.9375rem;
+  line-height: 2rem;
+`;
 
-export default Record;
+const DateContainer = styled.div`
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  line-height: 2rem;
+  font-size: 1.0625em;
+  text-align: right;
+`;
+
+export default ({ record: { date, description, category, amount } }: Props) => (
+  <RecordBox>
+    <Amount value={amount} RenderText={AmountFormatter} />
+    <Ellipsis>{description}</Ellipsis>
+    <Ellipsis>{category}</Ellipsis>
+    <DateContainer>{date.toLocaleDateString()}</DateContainer>
+  </RecordBox>
+);

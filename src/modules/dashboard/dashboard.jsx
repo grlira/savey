@@ -63,9 +63,9 @@ export default ({ records, onAddRecord }: Props) => {
     <Dashboard>
       <LedgerBox>
         <InputBox>
-          <RecordInput a={onAddRecord} isThin />
+          <RecordInput a={onAddRecord} />
         </InputBox>
-        <Ledger records={_.orderBy(records, 'date', 'desc')} isThinRecords />
+        <Ledger records={_.orderBy(records, 'date', 'desc')} />
       </LedgerBox>
       <MonthBox>
         <PeriodSummary
