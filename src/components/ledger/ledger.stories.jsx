@@ -1,5 +1,4 @@
 // @flow
-import _ from 'lodash';
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import mockRecords from '../../models/records/mock';

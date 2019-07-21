@@ -10,7 +10,8 @@
     "node": true
   },
   "rules": {
-    import/prefer-default-export: ["off"],
+    "import/prefer-default-export": ["off"],
+    "react/no-array-index-key": ["off"],
     "jsx-a11y/href-no-hash": ["off"],
     "react/jsx-filename-extension": [
       "warn",
